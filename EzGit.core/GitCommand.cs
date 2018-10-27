@@ -1,10 +1,19 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EzGit.core
 {
     public class GitCommand
     {
+
+        
+
+        
+
+        
+
 
 
         public string ExecCommand(string path, string command )
@@ -17,16 +26,11 @@ namespace EzGit.core
             gitStatus.StartInfo.UseShellExecute = false;
             gitStatus.StartInfo.RedirectStandardOutput = true;
             gitStatus.Start();
-    
-          
-
-
-
-
-
 
             string output = gitStatus.StandardOutput.ReadToEnd();
 
+
+            
             return output;
         }
 
@@ -41,7 +45,9 @@ namespace EzGit.core
             return path;
         }
 
-
+        
+    
+       
 
     }
 }

@@ -27,6 +27,9 @@ namespace EzGiT.app
 
         GitCommand gitCommand = new GitCommand();
 
+
+     
+
         
 
         string path;
@@ -35,14 +38,16 @@ namespace EzGiT.app
         {
             InitializeComponent();
             btnStatus.IsEnabled = false;
-           
+            btnGitInit.IsEnabled = false;
+            btnGitClone.IsEnabled = false;
+
         }
 
 
 
         private void btnStatus_Click(object sender, RoutedEventArgs e)
         {
-            txtOutput.Text = gitCommand.ExecCommand(path,"/c git status");
+            txtOutput.Text = $"{gitCommand.ExecCommand(path,"/c git status")}";
         }
 
 
@@ -54,8 +59,37 @@ namespace EzGiT.app
             if (path != null)
             {
                 btnStatus.IsEnabled = true;
+                btnGitInit.IsEnabled = true;
+                btnGitClone.IsEnabled = true;
                 lblWorkingDir.Content = path;
             }
+
+        }
+
+        private void btnGitInit_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git init")}";
+        }
+
+        private void btnGitClone_Click(object sender, RoutedEventArgs e)
+        {
+            string repourl = tbRepoToClone.Text;
+
+            if (Uri.IsWellFormedUriString(repourl, UriKind.Absolute))
+            {
+                txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git clone " + repourl)}" ;
+               
+                path =  $"{path}\\{repourl.Split('/').Last().Replace(".git","")}";
+ 
+                lblWorkingDir.Content = path;
+
+
+            }
+            else
+            {
+                txtOutput.Text = "INVALID URL";
+            }
+                
 
         }
     }
