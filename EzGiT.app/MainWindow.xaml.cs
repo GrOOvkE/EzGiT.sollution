@@ -1,19 +1,7 @@
 ﻿using EzGit.core;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Forms;
 
 
 
@@ -27,11 +15,6 @@ namespace EzGiT.app
 
         GitCommand gitCommand = new GitCommand();
 
-
-     
-
-        
-
         string path;
 
         public MainWindow()
@@ -40,7 +23,6 @@ namespace EzGiT.app
             btnStatus.IsEnabled = false;
             btnGitInit.IsEnabled = false;
             btnGitClone.IsEnabled = false;
-
         }
 
 
@@ -60,7 +42,6 @@ namespace EzGiT.app
         }
 
 
-
         private void btnChooseDir_Click(object sender, RoutedEventArgs e)
         {
             path = gitCommand.GetPath();
@@ -72,14 +53,14 @@ namespace EzGiT.app
                 btnGitClone.IsEnabled = true;
                 lblWorkingDir.Content = path;
             }
-
         }
+
 
         private void btnGitInit_Click(object sender, RoutedEventArgs e)
         {
             txtOutput.Text  = $"{gitCommand.ExecCommand(path, "/c git init")}";
-
         }
+
 
         private void btnGitClone_Click(object sender, RoutedEventArgs e)
         {
@@ -87,10 +68,9 @@ namespace EzGiT.app
 
             if (Uri.IsWellFormedUriString(repourl, UriKind.Absolute))
             {
+
                 txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git clone " + repourl)}" ;
-               
                 path =  $"{path}\\{repourl.Split('/').Last().Replace(".git","")}";
- 
                 lblWorkingDir.Content = path;
 
 
@@ -99,8 +79,36 @@ namespace EzGiT.app
             {
                 txtOutput.Text = "INVALID URL";
             }
-                
+               
+        }
 
+        private void btnGitCommit_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (gitCommand.ExecCommand(path, "/c git status").Contains("nothing to commit"))
+            {
+
+                txtOutput.Text = "nothing to commit";
+            }
+            else
+            {
+
+                string commitmsg = tbCommitMessage.Text;
+
+                if (commitmsg == "")
+                {
+                    txtOutput.Text = "ENTER COMMITMSG";
+                }
+                else
+                {
+                    gitCommand.ExecCommand(path, "/c git add * ");
+                    txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git commit -m " + commitmsg)}";
+                }
+
+
+            }
+    
+            
         }
     }
 }

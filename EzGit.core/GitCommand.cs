@@ -8,14 +8,6 @@ namespace EzGit.core
     public class GitCommand
     {
 
-        
-
-        
-
-        
-
-
-
         public string ExecCommand(string path, string command )
         {
             Process gitStatus = new Process();
@@ -29,12 +21,8 @@ namespace EzGit.core
 
             string output = gitStatus.StandardOutput.ReadToEnd();
 
-
-            
             return output;
         }
-
-
 
 
         public string GetPath()
@@ -44,10 +32,6 @@ namespace EzGit.core
             string path = dialog.SelectedPath;
             return path;
         }
-
-        
-    
-       
 
     }
 }

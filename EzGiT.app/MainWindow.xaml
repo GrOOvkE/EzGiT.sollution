@@ -24,6 +24,9 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
+        <TextBox x:Name="tbCommitMessage" HorizontalAlignment="Left" Height="98" Margin="676,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"/>
+        <Label Content="Commit Message" HorizontalAlignment="Left" Margin="676,212,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.025,0.105"/>
+        <Button x:Name="btnGitCommit" Content="Git Commit" HorizontalAlignment="Left" Margin="676,350,0,0" VerticalAlignment="Top" Width="161" Click="btnGitCommit_Click"/>
 
     </Grid>
 </Window>
