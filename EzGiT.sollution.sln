@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzGiT.app", "EzGiT.app\EzGiT.app.csproj", "{BCEC3696-A748-41D3-83DA-0CDEBCB954BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCEC3696-A748-41D3-83DA-0CDEBCB954BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCEC3696-A748-41D3-83DA-0CDEBCB954BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCEC3696-A748-41D3-83DA-0CDEBCB954BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCEC3696-A748-41D3-83DA-0CDEBCB954BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C03F43E9-148B-4B8C-B919-860D2E0D4FF8}
+	EndGlobalSection
+EndGlobal
