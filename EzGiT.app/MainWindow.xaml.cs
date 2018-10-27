@@ -47,7 +47,16 @@ namespace EzGiT.app
 
         private void btnStatus_Click(object sender, RoutedEventArgs e)
         {
-            txtOutput.Text = $"{gitCommand.ExecCommand(path,"/c git status")}";
+            string output = $"{gitCommand.ExecCommand(path,"/c git status")}";
+
+            if (output == "")
+            {
+                txtOutput.Text = "Kies een geldige Git Repo";
+            }
+            else
+            {
+                txtOutput.Text = output;
+            }
         }
 
 
@@ -68,7 +77,8 @@ namespace EzGiT.app
 
         private void btnGitInit_Click(object sender, RoutedEventArgs e)
         {
-            txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git init")}";
+            txtOutput.Text  = $"{gitCommand.ExecCommand(path, "/c git init")}";
+
         }
 
         private void btnGitClone_Click(object sender, RoutedEventArgs e)
