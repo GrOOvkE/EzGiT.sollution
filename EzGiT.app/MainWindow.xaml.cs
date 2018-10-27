@@ -88,6 +88,7 @@ namespace EzGiT.app
             {
                 string linebreak = "-----------------------------------";
                 txtOutput.Text = $"NOTING TO COMMIT\n{linebreak}\n EXTRA NFO:\n{linebreak}\n {gitCommand.ExecCommand(path, "/c git status")}";
+
             }
             else
             {
@@ -118,7 +119,7 @@ namespace EzGiT.app
         private void btnGitStageFiles_Click(object sender, RoutedEventArgs e)
         {
             txtOutput.Text = gitCommand.ExecCommand(path, "/c git add * ");
-            txtOutput.Text = "staged";
+            txtOutput.Text = "STAGED";
             btnGitCommit.IsEnabled = true;
         }
     }
