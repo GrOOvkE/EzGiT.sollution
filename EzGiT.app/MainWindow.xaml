@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EzGiT.app"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="601.027" Width="1087.671">
     <Grid>
-        
+        <Button x:Name="btnStatus" Content="Git Status" HorizontalAlignment="Left" Margin="676,77,0,0" VerticalAlignment="Top" Width="168" Click="btnStatus_Click"/>
+        <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Height="489" Margin="10,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="631"/>
+        <Button x:Name="btnChooseDir" Content="Choose Git Repository" HorizontalAlignment="Left" Margin="676,48,0,0" VerticalAlignment="Top" Width="168" Click="btnChooseDir_Click"/>
+        <Label Content="Git Repository :" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041"/>
+        <Label x:Name="lblWorkingDir" Content="" HorizontalAlignment="Left" Margin="131,17,0,0" VerticalAlignment="Top" Width="324"/>
+        <ComboBox HorizontalAlignment="Left" Margin="912,48,0,0" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>

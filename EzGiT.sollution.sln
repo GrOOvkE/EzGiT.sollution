@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzGiT.app", "EzGiT.app\EzGiT.app.csproj", "{BCEC3696-A748-41D3-83DA-0CDEBCB954BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzGit.core", "EzGit.core\EzGit.core.csproj", "{9A9B68F1-C7FF-468F-B057-DB4EA1B6CBB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BCEC3696-A748-41D3-83DA-0CDEBCB954BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCEC3696-A748-41D3-83DA-0CDEBCB954BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCEC3696-A748-41D3-83DA-0CDEBCB954BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9B68F1-C7FF-468F-B057-DB4EA1B6CBB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9B68F1-C7FF-468F-B057-DB4EA1B6CBB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9B68F1-C7FF-468F-B057-DB4EA1B6CBB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9B68F1-C7FF-468F-B057-DB4EA1B6CBB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
