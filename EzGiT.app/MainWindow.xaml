@@ -10,8 +10,8 @@
         <Button x:Name="btnStatus" Content="Git Status" HorizontalAlignment="Left" Margin="874,48,0,0" VerticalAlignment="Top" Width="168" Click="btnStatus_Click"/>
         <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Height="489" Margin="10,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="631" Background="Black" Foreground="White"/>
         <Button x:Name="btnChooseDir" Content="Choose Git Repository" HorizontalAlignment="Left" Margin="676,48,0,0" VerticalAlignment="Top" Width="168" Click="btnChooseDir_Click"/>
-        <Label Content="Git Repository :" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041"/>
-        <Label x:Name="lblWorkingDir" Content="" HorizontalAlignment="Left" Margin="131,17,0,0" VerticalAlignment="Top" Width="324"/>
+        <Label Content="Git Repository :" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="#FF3215E8" FontWeight="Bold"/>
+        <Label x:Name="lblWorkingDir" Content="" HorizontalAlignment="Left" Margin="131,17,0,0" VerticalAlignment="Top" Width="324" FontWeight="Bold" Foreground="#FF3215E8"/>
         <Button x:Name="btnGitInit" Content="Git Init" HorizontalAlignment="Left" Margin="676,86,0,0" VerticalAlignment="Top" Width="168" Click="btnGitInit_Click"/>
         <Grid Margin="676,150,76,335">
             <GroupBox Header="Clone" Height="119" Margin="-14,-32,-32,-18" VerticalAlignment="Top"/>
@@ -30,5 +30,6 @@
 
         </Grid>
         <Button x:Name="btnGitPush" Content="Git Push" HorizontalAlignment="Left" Margin="676,476,0,0" VerticalAlignment="Top" Width="161" Click="btnGitPush_Click"/>
+        <Button x:Name="btnGitPull" Content="Git Pull (update)" HorizontalAlignment="Left" Margin="852,477,0,0" VerticalAlignment="Top" Width="142" Click="btnGitPull_Click"/>
     </Grid>
 </Window>

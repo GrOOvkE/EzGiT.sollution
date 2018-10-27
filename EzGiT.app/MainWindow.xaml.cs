@@ -24,6 +24,9 @@ namespace EzGiT.app
             btnGitInit.IsEnabled = false;
             btnGitClone.IsEnabled = false;
             btnGitCommit.IsEnabled = false;
+            btnGitStageFiles.IsEnabled = false;
+            btnGitPush.IsEnabled = false;
+            tbRepoToClone.IsEnabled = false;
         }
 
         private void btnStatus_Click(object sender, RoutedEventArgs e)
@@ -32,11 +35,18 @@ namespace EzGiT.app
 
             if (output == "")
             {
-                txtOutput.Text = "Kies een geldige Git Repo";
+                txtOutput.Text = "Kies een geldige Git Repo ... \n of... \n Init een nieuwe Repository\n of \n Clone een  online Repository";
+                btnGitInit.IsEnabled = true;
+                btnGitClone.IsEnabled = true;
+                tbRepoToClone.IsEnabled = true;
             }
             else
             {
                 txtOutput.Text = output;
+                
+               
+                btnGitStageFiles.IsEnabled = true;
+                btnGitPush.IsEnabled = true;
             }
         }
 
@@ -48,8 +58,7 @@ namespace EzGiT.app
             if (path != null)
             {
                 btnStatus.IsEnabled = true;
-                btnGitInit.IsEnabled = true;
-                btnGitClone.IsEnabled = true;
+
                 lblWorkingDir.Content = path;
             }
         }
@@ -121,6 +130,11 @@ namespace EzGiT.app
             txtOutput.Text = gitCommand.ExecCommand(path, "/c git add * ");
             txtOutput.Text = "STAGED";
             btnGitCommit.IsEnabled = true;
+        }
+
+        private void btnGitPull_Click(object sender, RoutedEventArgs e)
+        {       
+                txtOutput.Text = gitCommand.ExecCommand(path, "/c git git pull ");
         }
     }
 }
