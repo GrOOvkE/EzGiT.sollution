@@ -134,7 +134,7 @@ namespace EzGiT.app
 
         private void btnGitPull_Click(object sender, RoutedEventArgs e)
         {       
-                txtOutput.Text = gitCommand.ExecCommand(path, "/c git git pull ");
+                txtOutput.Text = gitCommand.ExecCommand(path, "/c git pull ");
         }
     }
 }
