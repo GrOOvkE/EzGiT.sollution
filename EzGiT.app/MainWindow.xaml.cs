@@ -33,9 +33,9 @@ namespace EzGiT.app
         {
             string output = $"{gitCommand.ExecCommand(path,"/c git status")}";
 
-            if (output == "")
+            if (output.Contains("fatal")|| output == "")
             {
-                txtOutput.Text = "Kies een geldige Git Repo ... \n of... \n Init een nieuwe Repository\n of \n Clone een  online Repository";
+                txtOutput.Text = $"GIT OUTPUT: \n {output} \n ------------------\n Kies een geldige Git Repo ... \n of... \n Init een nieuwe Repository\n of \n Clone een  online Repository  ";
                 btnGitInit.IsEnabled = true;
                 btnGitClone.IsEnabled = true;
                 tbRepoToClone.IsEnabled = true;
@@ -77,9 +77,21 @@ namespace EzGiT.app
             if (Uri.IsWellFormedUriString(repourl, UriKind.Absolute))
             {
 
-                txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git clone " + repourl)}" ;
+                
+
+                string output = gitCommand.ExecCommand(path, "/c git clone " + repourl) ;
                 path =  $"{path}\\{repourl.Split('/').Last().Replace(".git","")}";
                 lblWorkingDir.Content = path;
+
+                if (output.Contains("Cloning into"))
+                {
+                    txtOutput.Text = $"GIT OUTPUT: \n {output} \n  ------------------------ \n CLONING DONE";
+
+                }
+                else txtOutput.Text = output;
+
+                
+
 
 
             }
@@ -127,9 +139,11 @@ namespace EzGiT.app
 
         private void btnGitStageFiles_Click(object sender, RoutedEventArgs e)
         {
-            txtOutput.Text = gitCommand.ExecCommand(path, "/c git add * ");
-            txtOutput.Text = "STAGED";
+            string output = gitCommand.ExecCommand(path, "/c git add * ");
+            //txtOutput.Text = "STAGED";
             btnGitCommit.IsEnabled = true;
+
+            txtOutput.Text = $"{output} /n /n ------------------------------------ /n{gitCommand.ExecCommand(path, "/c git status")}" ;
         }
 
         private void btnGitPull_Click(object sender, RoutedEventArgs e)

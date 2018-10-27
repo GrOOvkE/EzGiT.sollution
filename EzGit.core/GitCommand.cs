@@ -10,17 +10,22 @@ namespace EzGit.core
 
         public string ExecCommand(string path, string command )
         {
-            Process gitStatus = new Process();
+             Process gitStatus = new Process();
+            string output;
 
             gitStatus.StartInfo.FileName = "cmd.exe";
             gitStatus.StartInfo.WorkingDirectory = path ;
             gitStatus.StartInfo.Arguments = command;
             gitStatus.StartInfo.UseShellExecute = false;
             gitStatus.StartInfo.RedirectStandardOutput = true;
+            gitStatus.StartInfo.RedirectStandardError = true;
             gitStatus.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             gitStatus.Start();
+           
 
-            string output = gitStatus.StandardOutput.ReadToEnd();
+            output = gitStatus.StandardOutput.ReadToEnd();
+
+            output += gitStatus.StandardError.ReadToEnd();
 
             return output;
         }
