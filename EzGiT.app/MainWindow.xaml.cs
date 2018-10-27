@@ -77,8 +77,6 @@ namespace EzGiT.app
             if (Uri.IsWellFormedUriString(repourl, UriKind.Absolute))
             {
 
-                
-
                 string output = gitCommand.ExecCommand(path, "/c git clone " + repourl) ;
                 path =  $"{path}\\{repourl.Split('/').Last().Replace(".git","")}";
                 lblWorkingDir.Content = path;
@@ -89,10 +87,6 @@ namespace EzGiT.app
 
                 }
                 else txtOutput.Text = output;
-
-                
-
-
 
             }
             else
@@ -105,14 +99,6 @@ namespace EzGiT.app
         private void btnGitCommit_Click(object sender, RoutedEventArgs e)
         {
 
-            if (gitCommand.ExecCommand(path, "/c git status").Contains("nothing to commit"))
-            {
-                string linebreak = "-----------------------------------";
-                txtOutput.Text = $"NOTING TO COMMIT\n{linebreak}\n EXTRA NFO:\n{linebreak}\n {gitCommand.ExecCommand(path, "/c git status")}";
-
-            }
-            else
-            {
                 string commitmsg = tbCommitMessage.Text;
 
                 if (commitmsg == "")
@@ -125,7 +111,6 @@ namespace EzGiT.app
                     txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git commit -m " + commitmsg)}";
                 }
 
-            }
     
             
         }
@@ -140,10 +125,10 @@ namespace EzGiT.app
         private void btnGitStageFiles_Click(object sender, RoutedEventArgs e)
         {
             string output = gitCommand.ExecCommand(path, "/c git add * ");
-            //txtOutput.Text = "STAGED";
+       
             btnGitCommit.IsEnabled = true;
 
-            txtOutput.Text = $"{output} /n /n ------------------------------------ /n{gitCommand.ExecCommand(path, "/c git status")}" ;
+            txtOutput.Text = $"{output} \n \n ------------------------------------ \n{gitCommand.ExecCommand(path, "/c git status")}" ;
         }
 
         private void btnGitPull_Click(object sender, RoutedEventArgs e)

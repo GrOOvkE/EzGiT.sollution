@@ -26,7 +26,7 @@
             <Label Content="Commit Message" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.025,0.105"/>
             <Button x:Name="btnGitCommit" Content="Git Commit" HorizontalAlignment="Left" Margin="125,133,0,0" VerticalAlignment="Top" Width="96" Click="btnGitCommit_Click"/>
 
-            <Button x:Name="btnGitStageFiles" Content="Stage " HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" Width="102" Click="btnGitStageFiles_Click"/>
+            <Button x:Name="btnGitStageFiles" Content="Stage All" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" Width="102" Click="btnGitStageFiles_Click"/>
 
         </Grid>
         <Button x:Name="btnGitPush" Content="Git Push" HorizontalAlignment="Left" Margin="676,476,0,0" VerticalAlignment="Top" Width="161" Click="btnGitPush_Click"/>
