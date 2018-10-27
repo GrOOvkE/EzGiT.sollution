@@ -17,6 +17,7 @@ namespace EzGit.core
             gitStatus.StartInfo.Arguments = command;
             gitStatus.StartInfo.UseShellExecute = false;
             gitStatus.StartInfo.RedirectStandardOutput = true;
+            gitStatus.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             gitStatus.Start();
 
             string output = gitStatus.StandardOutput.ReadToEnd();

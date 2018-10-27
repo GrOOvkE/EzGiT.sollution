@@ -13,8 +13,8 @@
         <Label Content="Git Repository :" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041"/>
         <Label x:Name="lblWorkingDir" Content="" HorizontalAlignment="Left" Margin="131,17,0,0" VerticalAlignment="Top" Width="324"/>
         <Button x:Name="btnGitInit" Content="Git Init" HorizontalAlignment="Left" Margin="676,113,0,0" VerticalAlignment="Top" Width="168" Click="btnGitInit_Click"/>
-        <Button x:Name="btnGitClone" Content="Clone " HorizontalAlignment="Left" Margin="676,186,0,0" VerticalAlignment="Top" Width="161" Click="btnGitClone_Click"/>
-        <TextBox x:Name="tbRepoToClone" HorizontalAlignment="Left" Height="23" Margin="677,150,0,0" TextWrapping="Wrap" Text="Repo To Clone Url" VerticalAlignment="Top" Width="269" RenderTransformOrigin="0.508,0.302">
+        <Button x:Name="btnGitClone" Content="Git Clone " HorizontalAlignment="Left" Margin="676,186,0,0" VerticalAlignment="Top" Width="161" Click="btnGitClone_Click"/>
+        <TextBox x:Name="tbRepoToClone" HorizontalAlignment="Left" Height="23" Margin="677,150,0,0" TextWrapping="Wrap" Text="Enter A Valid Github Url" VerticalAlignment="Top" Width="269" RenderTransformOrigin="0.508,0.302">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -26,7 +26,9 @@
         </TextBox>
         <TextBox x:Name="tbCommitMessage" HorizontalAlignment="Left" Height="98" Margin="676,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"/>
         <Label Content="Commit Message" HorizontalAlignment="Left" Margin="676,212,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.025,0.105"/>
-        <Button x:Name="btnGitCommit" Content="Git Commit" HorizontalAlignment="Left" Margin="676,350,0,0" VerticalAlignment="Top" Width="161" Click="btnGitCommit_Click"/>
+        <Button x:Name="btnGitCommit" Content="Git Commit" HorizontalAlignment="Left" Margin="801,341,0,0" VerticalAlignment="Top" Width="96" Click="btnGitCommit_Click"/>
+        <Button x:Name="btnGitPush" Content="Git Push" HorizontalAlignment="Left" Margin="676,385,0,0" VerticalAlignment="Top" Width="161" Click="btnGitPush_Click"/>
+        <Button x:Name="btnGitStageFiles" Content="Stage " HorizontalAlignment="Left" Margin="676,341,0,0" VerticalAlignment="Top" Width="102" Click="btnGitStageFiles_Click"/>
 
     </Grid>
 </Window>

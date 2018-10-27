@@ -23,9 +23,8 @@ namespace EzGiT.app
             btnStatus.IsEnabled = false;
             btnGitInit.IsEnabled = false;
             btnGitClone.IsEnabled = false;
+            btnGitCommit.IsEnabled = false;
         }
-
-
 
         private void btnStatus_Click(object sender, RoutedEventArgs e)
         {
@@ -87,12 +86,11 @@ namespace EzGiT.app
 
             if (gitCommand.ExecCommand(path, "/c git status").Contains("nothing to commit"))
             {
-
-                txtOutput.Text = "nothing to commit";
+                string linebreak = "-----------------------------------";
+                txtOutput.Text = $"NOTING TO COMMIT\n{linebreak}\n EXTRA NFO:\n{linebreak}\n {gitCommand.ExecCommand(path, "/c git status")}";
             }
             else
             {
-
                 string commitmsg = tbCommitMessage.Text;
 
                 if (commitmsg == "")
@@ -101,14 +99,27 @@ namespace EzGiT.app
                 }
                 else
                 {
-                    gitCommand.ExecCommand(path, "/c git add * ");
+                   
                     txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git commit -m " + commitmsg)}";
                 }
-
 
             }
     
             
+        }
+
+        private void btnGitPush_Click(object sender, RoutedEventArgs e)
+        {
+
+            txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git push origin master")}";
+
+        }
+
+        private void btnGitStageFiles_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.Text = gitCommand.ExecCommand(path, "/c git add * ");
+            txtOutput.Text = "staged";
+            btnGitCommit.IsEnabled = true;
         }
     }
 }
