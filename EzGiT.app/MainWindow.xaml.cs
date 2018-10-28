@@ -235,13 +235,27 @@ namespace EzGiT.app
 
             if (Uri.IsWellFormedUriString(host, UriKind.Absolute))
             {
-                txtOutput.Text = $"{gitCommand.ExecCommand(path, $"/c git remote add origin {host}")}";
+               string Output = $"{gitCommand.ExecCommand(path, $"/c git remote add origin {host}")}";
+
+
+                txtOutput.Text = Output;
+
             }
             else
             {
                 txtOutput.Text = "INVALID URL";
 
             }
+
+        }
+
+        private void btnGitCheckOut_Click(object sender, RoutedEventArgs e)
+        {
+            string tag = tbGitCheckoutTag.Text;
+
+            string Output = $"{gitCommand.ExecCommand(path, $"/c git checkout tags/{tag}")}";
+
+            txtOutput.Text = Output;
 
         }
     }
