@@ -211,5 +211,19 @@ namespace EzGiT.app
         {
             txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git remote -v")}";
         }
+
+        private void btnGitConfig_Click(object sender, RoutedEventArgs e)
+        {
+           string output = gitCommand.ExecCommand(path, $"/c git config --global --replace-all user.name {txtGitUserName.Text}");
+            output += $"\n________\n{gitCommand.ExecCommand(path, $"/c git config --global --replace-all user.name {txtGitUserName.Text}")}";
+
+
+            if (output == "")
+            {
+                txtOutput.Text = "UPDATE COMPLETE";
+            }
+
+            txtOutput.Text = output;
+        }
     }
 }
