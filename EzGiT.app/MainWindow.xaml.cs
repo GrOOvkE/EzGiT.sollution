@@ -2,8 +2,8 @@
 using System;
 using System.Linq;
 using System.Windows;
-
-
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace EzGiT.app
 {
@@ -27,7 +27,20 @@ namespace EzGiT.app
             btnGitStageFiles.IsEnabled = false;
             btnGitPush.IsEnabled = false;
             tbRepoToClone.IsEnabled = false;
+            tbCommitMessage.IsEnabled = false;
+            btnGitPull.IsEnabled = false;
+            btnExpertCmd.IsEnabled = false;
+            btnChooseDir.Background = Brushes.Red;
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
 
         private void btnStatus_Click(object sender, RoutedEventArgs e)
         {
@@ -35,18 +48,21 @@ namespace EzGiT.app
 
             if (output.Contains("fatal")|| output == "")
             {
-                txtOutput.Text = $"GIT OUTPUT: \n {output} \n ------------------\n Kies een geldige Git Repo ... \n of... \n Init een nieuwe Repository\n of \n Clone een  online Repository  ";
+                txtOutput.Text = $"GIT OUTPUT:\n{output}\n ------------------\n Kies een geldige Git Repo ... \n of... \n Init een nieuwe Repository\n of \n Clone een  online Repository  ";
                 btnGitInit.IsEnabled = true;
                 btnGitClone.IsEnabled = true;
                 tbRepoToClone.IsEnabled = true;
+             
             }
             else
             {
                 txtOutput.Text = output;
-                
-               
+
+                btnExpertCmd.IsEnabled = true;
                 btnGitStageFiles.IsEnabled = true;
                 btnGitPush.IsEnabled = true;
+                btnGitPull.IsEnabled = true;
+                btnChooseDir.Background = Brushes.Transparent;
             }
         }
 
@@ -58,8 +74,9 @@ namespace EzGiT.app
             if (path != null)
             {
                 btnStatus.IsEnabled = true;
-
-                lblWorkingDir.Content = path;
+                btnGitPull.IsEnabled = false;
+                lblWorkingDir.Content = path.Split('\\').Last();
+                lblWorkingPath.Content = path;
             }
         }
 
@@ -79,7 +96,8 @@ namespace EzGiT.app
 
                 string output = gitCommand.ExecCommand(path, "/c git clone " + repourl) ;
                 path =  $"{path}\\{repourl.Split('/').Last().Replace(".git","")}";
-                lblWorkingDir.Content = path;
+                lblWorkingDir.Content = repourl.Split('/').Last().Replace(".git", "") ;
+                lblWorkingPath.Content = path;
 
                 if (output.Contains("Cloning into"))
                 {
@@ -109,16 +127,17 @@ namespace EzGiT.app
                 {
                    
                     txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git commit -m " + commitmsg)}";
-                }
-
-    
-            
+                    btnGitCommit.Background = Brushes.Transparent;
+                    btnGitPush.Background = Brushes.Red;
+            }
+      
         }
 
         private void btnGitPush_Click(object sender, RoutedEventArgs e)
         {
 
             txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git push origin master")}";
+            btnGitPush.Background = Brushes.Transparent;
 
         }
 
@@ -127,13 +146,25 @@ namespace EzGiT.app
             string output = gitCommand.ExecCommand(path, "/c git add * ");
        
             btnGitCommit.IsEnabled = true;
+            tbCommitMessage.IsEnabled = true;
+            btnGitCommit.Background = Brushes.Red;
 
-            txtOutput.Text = $"{output} \n \n ------------------------------------ \n{gitCommand.ExecCommand(path, "/c git status")}" ;
+            txtOutput.Text = $" {output}\n{gitCommand.ExecCommand(path, "/c git status")}" ;
         }
 
         private void btnGitPull_Click(object sender, RoutedEventArgs e)
         {       
                 txtOutput.Text = gitCommand.ExecCommand(path, "/c git pull ");
+        }
+
+        private void btnExit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnMinimize_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized ;
         }
     }
 }
