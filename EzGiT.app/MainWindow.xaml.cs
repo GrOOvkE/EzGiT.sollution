@@ -206,5 +206,10 @@ namespace EzGiT.app
         {
             txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git log --graph --oneline --decorate --all")}";
         }
+
+        private void btnGitRemotes_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git remote -v")}";
+        }
     }
 }
