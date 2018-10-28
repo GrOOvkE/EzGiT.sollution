@@ -40,7 +40,7 @@
 
 
         <Label Content="Expert Command Mode: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontFamily="Kristen ITC" Height="27" Width="162" Margin="9,446,0,0"/>
-        <TextBox x:Name="tbExpertCmd" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="Example: git merge ...." VerticalAlignment="Top" Width="372" Foreground="White" Background="#19000000" FontWeight="Bold" VerticalContentAlignment="Center" FontSize="14" Margin="9,470,0,0" FontFamily="Kristen ITC"/>
+        <TextBox x:Name="tbExpertCmd" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="Example: git Help" VerticalAlignment="Top" Width="372" Foreground="White" Background="#19000000" FontWeight="Bold" VerticalContentAlignment="Center" FontSize="14" Margin="9,470,0,0" FontFamily="Kristen ITC"/>
         <Button x:Name="btnExpertCmd" Content="Execute!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Background="#FFC55454" BorderBrush="White" Foreground="White" Height="35" FontFamily="Kristen ITC" FontSize="14" Click="btnExpertCmd_Click" Margin="400,470,0,0" VerticalContentAlignment="Center"/>
         <Label Content="EzGit" HorizontalAlignment="Left" Height="102" Margin="37,6,0,0" VerticalAlignment="Top" Width="249" FontFamily="Kristen ITC" FontSize="72" Foreground="White"/>
         <Label x:Name="btnExit" Content="EXIT" HorizontalAlignment="Left" Margin="881,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.435,-0.434" Foreground="White" BorderBrush="White" BorderThickness="2" Width="36" MouseDown="btnExit_MouseDown" Height="29" Background="#FFC55454" FontFamily="Kristen ITC" VerticalContentAlignment="Center" Grid.RowSpan="2" FontSize="8"/>
