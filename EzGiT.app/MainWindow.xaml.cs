@@ -201,5 +201,10 @@ namespace EzGiT.app
             txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git log")}";
 
         }
+
+        private void btnGitChangeLog_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git log --graph --oneline --decorate --all")}";
+        }
     }
 }

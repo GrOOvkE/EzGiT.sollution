@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EzGiT.app"
         mc:Ignorable="d"
-        Title="MainWindow" Height="612.732" Width="926.661" WindowStyle="None" ResizeMode="NoResize"  MouseDown="Window_MouseDown">
+        Title="MainWindow" Height="612.732" Width="935.661" WindowStyle="None" ResizeMode="NoResize"  MouseDown="Window_MouseDown">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF1543A6"/>
@@ -13,26 +13,25 @@
             <GradientStop Color="#FE4D70BB" Offset="0.493"/>
         </LinearGradientBrush>
     </Window.Background>
-    <Grid HorizontalAlignment="Left" Width="964">
+    <Grid HorizontalAlignment="Left" Width="927">
         <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Height="289" Margin="10,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="465" Background="#99646363" Foreground="White" BorderThickness="4" FontSize="16"/>
         <Button x:Name="btnChooseDir" Content="Choose Git Repository" HorizontalAlignment="Left" Margin="544,92,0,0" VerticalAlignment="Top" Width="168" Click="btnChooseDir_Click" Background="#00000000" BorderBrush="White" Foreground="White" Height="33" FontFamily="Tekton Pro" FontSize="14"/>
         <Label Content="Active Git Repository :" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="149" BorderBrush="#FFD42020" Background="#FFC55454" Height="22" HorizontalContentAlignment="Center" FontFamily="Tekton Pro"/>
         <Label x:Name="lblWorkingDir" Content="---------------------------------------------------------&gt;" HorizontalAlignment="Left" Margin="173,111,0,0" VerticalAlignment="Top" Width="302" FontWeight="Bold" Foreground="White" Background="#FFC55454" Height="22" HorizontalContentAlignment="Center" FontFamily="Tekton Pro"/>
-        <Grid x:Name="grdStatusInitPull" Margin="544,92,54,397">
+        <Grid x:Name="grdStatusInitPull" Margin="544,92,10,397">
             <Button x:Name="btnStatus" Content="Git Status" HorizontalAlignment="Left" Margin="198,0,0,0" VerticalAlignment="Top" Width="168" Click="btnStatus_Click" Background="#00000000" Foreground="White" BorderBrush="White" Height="33" FontFamily="Tekton Pro" FontSize="14"/>
             <Button x:Name="btnGitInit" Content="Git Init" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Width="168" Click="btnGitInit_Click" BorderBrush="White" Background="#00000000" Foreground="White" Height="33" FontFamily="Tekton Pro" FontSize="14"/>
             <Button x:Name="btnGitPull" Content="Git Pull (update)" HorizontalAlignment="Left" Margin="198,52,0,0" VerticalAlignment="Top" Width="168" Click="btnGitPull_Click" Background="#00000000" BorderBrush="White" Foreground="White" Height="33" FontFamily="Tekton Pro" FontSize="14"/>
         </Grid>
-        <Grid x:Name="grdClone" Margin="544,226,85,237">
-            <GroupBox Header="Clone" Margin="-14,-32,-32,30" Foreground="White" FontFamily="Tekton Pro"/>
-            <Button x:Name="btnGitClone" Content="Git Clone " Margin="10,70,203,0" VerticalAlignment="Top" Click="btnGitClone_Click" Background="#00000000" BorderBrush="White" Foreground="White" Height="33" FontFamily="Tekton Pro" FontSize="14"/>
-            <TextBox x:Name="tbRepoToClone" HorizontalAlignment="Left" Height="54" Margin="1,0,0,0" TextWrapping="Wrap" Text="Enter A Valid Github Url" VerticalAlignment="Top" Width="317" RenderTransformOrigin="0.508,0.302" Background="#00000000" Foreground="White" BorderBrush="White" FontFamily="Tekton Pro" FontSize="14">
+        <GroupBox Header="Clone" Margin="530,188,17,280" Foreground="White" FontFamily="Tekton Pro"/>
+        <Grid x:Name="grdClone" Margin="544,226,90,237">
 
-            </TextBox>
+            <Button x:Name="btnGitClone" Content="Git Clone " Margin="10,60,203,0" VerticalAlignment="Top" Click="btnGitClone_Click" Background="#00000000" BorderBrush="White" Foreground="White" Height="33" FontFamily="Tekton Pro" FontSize="14"/>
+            <TextBox x:Name="tbRepoToClone" Height="60" Margin="0,-14,-51,0" TextWrapping="Wrap" Text="Enter A Valid Github Url" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.302" Background="#00000000" Foreground="White" BorderBrush="White" FontFamily="Tekton Pro" FontSize="14" VerticalContentAlignment="Center"/>
         </Grid>
         <GroupBox Header="Commit" HorizontalAlignment="Left" Height="204" Margin="530,357,0,0" VerticalAlignment="Top" Width="380" Foreground="White" FontFamily="Tekton Pro"/>
-        <Grid x:Name="grdCommit" Margin="565,357,73,52">
-            <TextBox x:Name="tbCommitMessage" HorizontalAlignment="Left" Height="80" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" Background="#00000000" BorderBrush="White" Foreground="White" FontFamily="Tekton Pro" FontSize="14"/>
+        <Grid x:Name="grdCommit" Margin="565,357,58,52">
+            <TextBox x:Name="tbCommitMessage" HorizontalAlignment="Left" Height="80" Margin="0,55,-15,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="304" Background="#00000000" BorderBrush="White" Foreground="White" FontFamily="Tekton Pro" FontSize="14"/>
             <Label Content="Commit Message :" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.025,0.105" Foreground="White" Margin="0,28,0,0" FontFamily="Tekton Pro" FontSize="14"/>
             <Button x:Name="btnGitCommit" Content="Git Commit" HorizontalAlignment="Left" Margin="103,145,0,0" VerticalAlignment="Top" Width="85" Click="btnGitCommit_Click" Foreground="White" Background="#00000000" BorderBrush="White" Height="32" FontFamily="Tekton Pro" FontSize="14" RenderTransformOrigin="0.482,1.219"/>
 
@@ -44,7 +43,7 @@
         <TextBox x:Name="tbExpertCmd" HorizontalAlignment="Left" Height="35" Margin="10,457,0,0" TextWrapping="Wrap" Text="Example: git merge ...." VerticalAlignment="Top" Width="372" Foreground="White" Background="#7FFFFFFF" FontWeight="Bold" VerticalContentAlignment="Center" FontSize="14"/>
         <Button x:Name="btnExpertCmd" Content="Execute!" HorizontalAlignment="Left" Margin="400,457,0,0" VerticalAlignment="Top" Width="75" Background="#FFC55454" BorderBrush="White" Foreground="White" Height="32" FontFamily="Tekton Pro" FontSize="14"/>
         <Label Content="EzGit" HorizontalAlignment="Left" Height="82" Margin="37,10,0,0" VerticalAlignment="Top" Width="345" FontFamily="Tekton Pro Ext" FontSize="72" Foreground="White"/>
-        <Label x:Name="btnExit" Content="EXIT" HorizontalAlignment="Left" Margin="874,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.435,-0.434" Foreground="White" BorderBrush="White" BorderThickness="2" Width="36" MouseDown="btnExit_MouseDown" Height="29" Background="#FFC55454" FontFamily="Tekton Pro Cond" VerticalContentAlignment="Center"/>
+        <Label x:Name="btnExit" Content="EXIT" HorizontalAlignment="Left" Margin="881,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.435,-0.434" Foreground="White" BorderBrush="White" BorderThickness="2" Width="36" MouseDown="btnExit_MouseDown" Height="29" Background="#FFC55454" FontFamily="Tekton Pro Cond" VerticalContentAlignment="Center"/>
         <Label x:Name="btnMinimize" Content="_______" HorizontalAlignment="Left" Margin="833,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.435,-0.434" Foreground="#FFFBFBFB" BorderBrush="White" BorderThickness="2" Width="36" Background="#00000000" FontWeight="Bold" FontFamily="Showcard Gothic" MouseDown="btnMinimize_MouseDown"/>
         <Label Content="GrOOvKe's" HorizontalAlignment="Left" Margin="12,6,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.789,0.881" FontWeight="Bold" FontFamily="Tekton Pro" FontSize="16" Foreground="#FFFF0404">
             <Label.RenderTransform>
@@ -57,10 +56,11 @@
             </Label.RenderTransform>
         </Label>
         <Label Content="Active Repository Directory :" HorizontalAlignment="Left" Margin="124,593,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="142" BorderBrush="#FFD42020" Background="#FFC55454" Height="20" FontSize="11" FontFamily="Tekton Pro"/>
-        <Label x:Name="lblWorkingPath" Content="" HorizontalAlignment="Left" Margin="266,593,-9,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="707" BorderBrush="#FFD42020" Background="#FFC55454" Height="20" FontFamily="Tekton Pro" FontSize="11"/>
+        <Label x:Name="lblWorkingPath" Content="" HorizontalAlignment="Left" Margin="266,593,-12,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="673" BorderBrush="#FFD42020" Background="#FFC55454" Height="20" FontFamily="Tekton Pro" FontSize="11"/>
         <Label Content="Tools:" HorizontalAlignment="Left" Margin="10,497,0,0" VerticalAlignment="Top" FontFamily="Tekton Pro" FontSize="14" Foreground="White"/>
         <Button x:Name="btnGitLog" Content="Git Log" HorizontalAlignment="Left" Margin="10,529,0,0" VerticalAlignment="Top" Width="75" Height="32" Foreground="White" BorderBrush="White" Background="#00DDDDDD" Click="btnGitLog_Click"/>
         <Label Content="Commit Count :" HorizontalAlignment="Left" Margin="0,593,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="85" BorderBrush="#FFD42020" Background="#FFC55454" Height="20" FontSize="11" FontFamily="Tekton Pro"/>
         <Label x:Name="lblCommitsCount" Content="" HorizontalAlignment="Left" Margin="85,593,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="39" BorderBrush="#FFD42020" Background="#FFC55454" Height="20" FontSize="11" FontFamily="Tekton Pro"/>
+        <Button x:Name="btnGitChangeLog" Content="ChangeLog" HorizontalAlignment="Left" Margin="101,529,0,0" VerticalAlignment="Top" Width="75" Height="32" Foreground="White" BorderBrush="White" Background="#00DDDDDD" Click="btnGitChangeLog_Click" />
     </Grid>
 </Window>
