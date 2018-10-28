@@ -45,7 +45,7 @@
         <Label Content="EzGit" HorizontalAlignment="Left" Height="74" Margin="37,10,0,0" VerticalAlignment="Top" Width="226" FontFamily="Tekton Pro Ext" FontSize="72" Foreground="White"/>
         <Label x:Name="btnExit" Content="EXIT" HorizontalAlignment="Left" Margin="881,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.435,-0.434" Foreground="White" BorderBrush="White" BorderThickness="2" Width="36" MouseDown="btnExit_MouseDown" Height="29" Background="#FFC55454" FontFamily="Tekton Pro Cond" VerticalContentAlignment="Center" Grid.RowSpan="2"/>
         <Label x:Name="btnMinimize" Content="_______" HorizontalAlignment="Left" Margin="833,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.435,-0.434" Foreground="#FFFBFBFB" BorderBrush="White" BorderThickness="2" Width="36" Background="#00000000" FontWeight="Bold" FontFamily="Showcard Gothic" MouseDown="btnMinimize_MouseDown" Height="29" Grid.RowSpan="2"/>
-        <Label Content="GrOOvKe's" HorizontalAlignment="Left" Margin="34,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.789,0.881" FontWeight="Bold" FontFamily="Tekton Pro" FontSize="18" Foreground="#FFFF0404" Height="29" Width="81">
+        <Label Content="GrOOvKe's" HorizontalAlignment="Left" Margin="34,8,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.789,0.881" FontWeight="Bold" FontFamily="Tekton Pro" FontSize="18" Foreground="#FFFF0404" Height="29" Width="92">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -56,7 +56,7 @@
             </Label.RenderTransform>
         </Label>
         <Label Content="Active Repository Directory :" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="163" BorderBrush="White" Background="#FFC55454" Height="20" FontSize="11" FontFamily="Tekton Pro" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="123,563,0,0" BorderThickness="0"/>
-        <Label x:Name="lblWorkingPath" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="454" BorderBrush="White" Background="#FFC55454" Height="20" FontFamily="Tekton Pro" FontSize="11" VerticalContentAlignment="Center" Margin="286,563,0,0" BorderThickness="0"/>
+        <Label x:Name="lblWorkingPath" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="535" BorderBrush="White" Background="#FFC55454" Height="20" FontFamily="Tekton Pro" FontSize="11" VerticalContentAlignment="Center" Margin="286,563,0,0" BorderThickness="0"/>
         <Label Content="Commit Count :" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="84" BorderBrush="White" Background="#FFC55454" Height="20" FontSize="11" FontFamily="Tekton Pro" VerticalContentAlignment="Center" Margin="0,563,0,0" BorderThickness="0"/>
         <Label x:Name="lblCommitsCount" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.337,0.041" Foreground="White" FontWeight="Bold" Width="39" BorderBrush="White" Background="#FFC55454" Height="20" FontSize="11" FontFamily="Tekton Pro" VerticalContentAlignment="Center" Margin="84,563,0,0" BorderThickness="0"/>
 
@@ -85,7 +85,7 @@
         <Button x:Name="btnGitCheckOut" Content="Git Tag CheckOut" HorizontalAlignment="Left" Margin="732,455,0,0" VerticalAlignment="Top" Width="137"  Background="#00000000" BorderBrush="White" Foreground="White" Height="32" FontFamily="Tekton Pro" FontSize="14" RenderTransformOrigin="0.5,0.531" Click="btnGitCheckOut_Click"/>
         <TextBox x:Name="tbGitCheckoutTag" HorizontalAlignment="Left" Height="32" Margin="540,456,0,0" TextWrapping="Wrap" Text="Enter tag" VerticalAlignment="Top" Width="183" VerticalContentAlignment="Center" Background="#19000000" Foreground="White" FontFamily="Tekton Pro"/>
         <Label Content="Git Command Line Made E Z !" HorizontalAlignment="Left" Margin="41,77,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Tekton Pro" Width="178" FontSize="14"/>
-        <Label x:Name="lblConnectedStatus" Content="Label" HorizontalAlignment="Left" Margin="762,563,0,0" VerticalAlignment="Top" Width="174" Height="20" FontSize="11" Foreground="White" Background="#FFC55454" FontFamily="Tekton Pro" RenderTransformOrigin="0.291,0.4"/>
-        <Label x:Name="lblConnectionStatusColor" Content="" HorizontalAlignment="Left" Margin="740,563,0,0" VerticalAlignment="Top" Width="22" Background="Red" BorderBrush="#FFC55454" BorderThickness="2" Height="20"/>
+        <Label x:Name="lblConnectedStatus" Content="Not Connected" HorizontalAlignment="Left" Margin="843,563,0,0" VerticalAlignment="Top" Width="93" Height="20" FontSize="11" Foreground="White" Background="#FFC55454" FontFamily="Tekton Pro" RenderTransformOrigin="0.291,0.4"/>
+        <Label x:Name="lblConnectionStatusColor" Content="" HorizontalAlignment="Left" Margin="821,563,0,0" VerticalAlignment="Top" Width="22" Background="Red" BorderBrush="#FFC55454" BorderThickness="4" Height="20"/>
     </Grid>
 </Window>
