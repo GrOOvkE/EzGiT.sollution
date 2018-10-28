@@ -81,6 +81,7 @@ namespace EzGiT.app
                     lblCommitsCount.Content = "";
                     btnChooseDir.Background = Brushes.Transparent;
                     btnStatus.Background = Brushes.Red;
+                    CheckOnlineStatus();
                     
 
                 }
