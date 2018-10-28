@@ -8,6 +8,11 @@ namespace EzGit.core
     public class GitCommand
     {
 
+        public List<string> hostsList = new List<string>();
+
+        
+
+
         public string ExecCommand(string path, string command )
         {
              Process gitStatus = new Process();

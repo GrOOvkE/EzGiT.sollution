@@ -20,17 +20,16 @@ namespace EzGiT.app
         public MainWindow()
         {
             InitializeComponent();
-            btnStatus.IsEnabled = false;
-            btnGitInit.IsEnabled = false;
-            grdClone.IsEnabled = false;
-            btnGitCommit.IsEnabled = false;
-            btnGitStageFiles.IsEnabled = false;
-            btnGitPush.IsEnabled = false;
-           
-            tbCommitMessage.IsEnabled = false;
-            btnGitPull.IsEnabled = false;
-            btnExpertCmd.IsEnabled = false;
             btnChooseDir.Background = Brushes.Red;
+            LoadHosts();
+
+        }
+
+        private void LoadHosts()
+        {
+            cmbHosts.ItemsSource = gitCommand.hostsList;
+            gitCommand.hostsList.Add("github.com");
+            cmbHosts.SelectedIndex = 0;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -49,23 +48,20 @@ namespace EzGiT.app
             if (output.Contains("fatal")|| output == "")
             {
                 txtOutput.Text = $"GIT OUTPUT:\n{output}\n ------------------\n Kies een geldige Git Repo ... \n of... \n Init een nieuwe Repository\n of \n Clone een  online Repository  ";
-                btnGitInit.IsEnabled = true;
+            
              
                 btnStatus.Background = Brushes.Transparent;
                 btnGitInit.Background = Brushes.Red;
                 btnGitClone.Background = Brushes.Red;
                 btnChooseDir.Background = Brushes.Red;
-                grdClone.IsEnabled = true;
+              
 
             }
             else
             {
                 txtOutput.Text = output;
 
-                btnExpertCmd.IsEnabled = true;
-                btnGitStageFiles.IsEnabled = true;
-                btnGitPush.IsEnabled = true;
-                btnGitPull.IsEnabled = true;
+        
                 btnChooseDir.Background = Brushes.Transparent;
                 
             }
@@ -78,8 +74,7 @@ namespace EzGiT.app
             
             if (path != null)
             {
-                btnStatus.IsEnabled = true;
-                btnGitPull.IsEnabled = false;
+             
               
                 string commitcount = gitCommand.ExecCommand(path, "/c git rev-list --all --count");
                 if (commitcount.Contains("fatal"))
@@ -102,8 +97,8 @@ namespace EzGiT.app
                     btnChooseDir.Background = Brushes.Transparent;
                     txtOutput.Text = "PRESS STATUS BUTTON";
                     btnStatus.Background = Brushes.Red;
-                    grdClone.IsEnabled = false;
-                    btnGitInit.IsEnabled = false;
+                  
+             
                 }
                 
             }
@@ -174,8 +169,7 @@ namespace EzGiT.app
         {
             string output = gitCommand.ExecCommand(path, "/c git add * ");
        
-            btnGitCommit.IsEnabled = true;
-            tbCommitMessage.IsEnabled = true;
+       
             btnGitCommit.Background = Brushes.Red;
 
             txtOutput.Text = $" {output}\n{gitCommand.ExecCommand(path, "/c git status")}" ;
@@ -232,6 +226,20 @@ namespace EzGiT.app
 
             txtOutput.Text = $"{gitCommand.ExecCommand(path, $"/c {command}")}";
 
+        }
+
+        private void tbRepoToClone_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+           tbRepoToClone.SelectAll();
+        }
+
+        private void btnGitRemoteConnect_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = cmbHosts.SelectedValue ;
+
+           
+
+            MessageBox.Show($"{selectedItem}");
         }
     }
 }
