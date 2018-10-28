@@ -21,16 +21,11 @@ namespace EzGiT.app
         {
             InitializeComponent();
             btnChooseDir.Background = Brushes.Red;
-            LoadHosts();
+           
 
         }
 
-        private void LoadHosts()
-        {
-            cmbHosts.ItemsSource = gitCommand.hostsList;
-            gitCommand.hostsList.Add("github.com");
-            cmbHosts.SelectedIndex = 0;
-        }
+
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -235,11 +230,19 @@ namespace EzGiT.app
 
         private void btnGitRemoteConnect_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = cmbHosts.SelectedValue ;
+            string host = tbRepoToClone.Text ;
 
-           
 
-            MessageBox.Show($"{selectedItem}");
+            if (Uri.IsWellFormedUriString(host, UriKind.Absolute))
+            {
+                txtOutput.Text = $"{gitCommand.ExecCommand(path, $"/c git remote add origin {host}")}";
+            }
+            else
+            {
+                txtOutput.Text = "INVALID URL";
+
+            }
+
         }
     }
 }
