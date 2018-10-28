@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EzGiT.app"
         mc:Ignorable="d"
-        Title="MainWindow" Height="612.732" Width="935.661" WindowStyle="None" ResizeMode="NoResize"  MouseDown="Window_MouseDown">
+        Title="GrOOvke's EzGit" Height="612.732" Width="935.661" WindowStyle="None" ResizeMode="NoResize"  MouseDown="Window_MouseDown" Icon="Resources/icon.png">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF1543A6"/>
