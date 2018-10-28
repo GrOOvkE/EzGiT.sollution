@@ -225,5 +225,13 @@ namespace EzGiT.app
 
             txtOutput.Text = output;
         }
+
+        private void btnExpertCmd_Click(object sender, RoutedEventArgs e)
+        {
+            string command = tbExpertCmd.Text;
+
+            txtOutput.Text = $"{gitCommand.ExecCommand(path, $"/c {command}")}";
+
+        }
     }
 }
