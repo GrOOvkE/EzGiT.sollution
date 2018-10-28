@@ -22,11 +22,11 @@ namespace EzGiT.app
             InitializeComponent();
             btnStatus.IsEnabled = false;
             btnGitInit.IsEnabled = false;
-            btnGitClone.IsEnabled = false;
+            grdClone.IsEnabled = false;
             btnGitCommit.IsEnabled = false;
             btnGitStageFiles.IsEnabled = false;
             btnGitPush.IsEnabled = false;
-            tbRepoToClone.IsEnabled = false;
+           
             tbCommitMessage.IsEnabled = false;
             btnGitPull.IsEnabled = false;
             btnExpertCmd.IsEnabled = false;
@@ -44,15 +44,19 @@ namespace EzGiT.app
 
         private void btnStatus_Click(object sender, RoutedEventArgs e)
         {
-            string output = $"{gitCommand.ExecCommand(path,"/c git status")}";
+            string output = $"{gitCommand.ExecCommand(path, "/c git status")}";
 
             if (output.Contains("fatal")|| output == "")
             {
                 txtOutput.Text = $"GIT OUTPUT:\n{output}\n ------------------\n Kies een geldige Git Repo ... \n of... \n Init een nieuwe Repository\n of \n Clone een  online Repository  ";
                 btnGitInit.IsEnabled = true;
-                btnGitClone.IsEnabled = true;
-                tbRepoToClone.IsEnabled = true;
              
+                btnStatus.Background = Brushes.Transparent;
+                btnGitInit.Background = Brushes.Red;
+                btnGitClone.Background = Brushes.Red;
+                btnChooseDir.Background = Brushes.Red;
+                grdClone.IsEnabled = true;
+
             }
             else
             {
@@ -63,6 +67,7 @@ namespace EzGiT.app
                 btnGitPush.IsEnabled = true;
                 btnGitPull.IsEnabled = true;
                 btnChooseDir.Background = Brushes.Transparent;
+                
             }
         }
 
@@ -75,8 +80,32 @@ namespace EzGiT.app
             {
                 btnStatus.IsEnabled = true;
                 btnGitPull.IsEnabled = false;
-                lblWorkingDir.Content = path.Split('\\').Last();
-                lblWorkingPath.Content = path;
+              
+                string commitcount = gitCommand.ExecCommand(path, "/c git rev-list --all --count");
+                if (commitcount.Contains("fatal"))
+                {
+                    lblWorkingDir.Content = "";
+                    lblWorkingPath.Content = "";
+                    lblCommitsCount.Content = "";
+                    btnChooseDir.Background = Brushes.Transparent;
+                    btnStatus.Background = Brushes.Red;
+                    
+
+                }
+                else
+                {
+                    lblWorkingDir.Content = path.Split('\\').Last();
+                    lblWorkingPath.Content = path;
+                    lblCommitsCount.Content = commitcount;
+                    btnGitInit.Background = Brushes.Transparent;
+                    btnGitClone.Background = Brushes.Transparent;
+                    btnChooseDir.Background = Brushes.Transparent;
+                    txtOutput.Text = "PRESS STATUS BUTTON";
+                    btnStatus.Background = Brushes.Red;
+                    grdClone.IsEnabled = false;
+                    btnGitInit.IsEnabled = false;
+                }
+                
             }
         }
 
@@ -165,6 +194,12 @@ namespace EzGiT.app
         private void btnMinimize_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized ;
+        }
+
+        private void btnGitLog_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.Text = $"{gitCommand.ExecCommand(path, "/c git log")}";
+
         }
     }
 }
