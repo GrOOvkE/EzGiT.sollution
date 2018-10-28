@@ -128,7 +128,7 @@ namespace EzGiT.app
 
                 }
                 else txtOutput.Text = output;
-
+                CheckOnlineStatus();
             }
             else
             {
