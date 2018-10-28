@@ -1,6 +1,7 @@
 ﻿using EzGit.core;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -15,12 +16,13 @@ namespace EzGiT.app
 
         GitCommand gitCommand = new GitCommand();
 
-        string path;
+        string path = "c:\\windows\\";
 
         public MainWindow()
         {
             InitializeComponent();
             btnChooseDir.Background = Brushes.Red;
+            CheckOnlineStatus();
            
 
         }
@@ -92,6 +94,7 @@ namespace EzGiT.app
                     btnChooseDir.Background = Brushes.Transparent;
                     txtOutput.Text = "PRESS STATUS BUTTON";
                     btnStatus.Background = Brushes.Red;
+                    CheckOnlineStatus();
                   
              
                 }
@@ -258,5 +261,25 @@ namespace EzGiT.app
             txtOutput.Text = Output;
 
         }
-    }
+
+        private  void CheckOnlineStatus()
+        {
+           
+                if (gitCommand.ExecCommand(path, "/c git remote -v").Contains("fatal"))
+                {
+                    lblConnectionStatusColor.Background = Brushes.Red;
+                lblConnectedStatus.Content = "Not Connected";
+                }
+                else
+                {
+                    lblConnectionStatusColor.Background = Brushes.LightGreen;
+                    lblConnectedStatus.Content = "Connected";
+            }
+
+        }
+
+      
+        }
+
+
 }
